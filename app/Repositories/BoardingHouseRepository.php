@@ -4,8 +4,7 @@ namespace App\Repositories;
 
 use App\Interfaces\BoardingHouseRepositoryInterface;
 use App\Models\BoardingHouse;
-use App\Models\Category;
-use Filament\Forms\Components\Builder;
+use Illuminate\Database\Eloquent\Builder;
 
 class BoardingHouseRepository implements BoardingHouseRepositoryInterface
 {
@@ -18,8 +17,8 @@ class BoardingHouseRepository implements BoardingHouseRepositoryInterface
         }
         if($city)
         {
-            $query->whereHas('city', function(Builder $query) use ($category){
-                $query->where('slug', $category);
+            $query->whereHas('city', function(Builder $query) use ($city){
+                $query->where('slug', $city);
             });
         }
         if($category)
