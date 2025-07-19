@@ -17,6 +17,12 @@
     </div>
     <div id="Gallery" class="swiper-gallery w-full overflow-x-hidden -mb-[38px]">
         <div class="swiper-wrapper">
+            <div class="swiper-slide !w-fit">
+                <div class="flex shrink-0 w-[320px] h-[430px] overflow-hidden">
+                    <img src="{{ asset('storage/'. $boardingHouse->thumbnail) }}" class="w-full h-full object-cover"
+                        alt="gallery thumbnails">
+                </div>
+            </div>
         @foreach ($boardingHouse->rooms as $room)
             @foreach ($room->images as $image)
             <div class="swiper-slide !w-fit">
@@ -152,7 +158,7 @@
                     <br>
                     <span class="text-sm font-normal">/bulan</span>
                 </p>
-                <a href="room-available.html"
+                <a href="{{ route('kos.rooms', $boardingHouse->slug) }}"
                     class="flex shrink-0 rounded-full py-[14px] px-5 bg-ngekos-orange font-bold text-white">Book
                     Now</a>
             </div>
