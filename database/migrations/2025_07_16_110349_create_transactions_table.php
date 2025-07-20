@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->string('code');
+            $table->string('code')->unique();
             $table->foreignId('boarding_house_id')->constrained()->casecadeOnDelete();
             $table->foreignId('room_id')->constrained()->casecadeOnDelete();
             $table->string('name');
